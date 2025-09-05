@@ -11,9 +11,9 @@ setDesktopViewport();
 
 // Atur bulan, tanggal, jam, dan menit ulang tahunmu di sini
 const birthdayMonth = 8; // Bulan (0-11): 0 = Januari, 11 = Desember
-const birthdayDay = 5;   // Tanggal (1-31)
-const birthdayHour = 17;  // Jam ulang tahun (0-23)
-const birthdayMinute = 10; // Menit ulang tahun (0-59)
+const birthdayDay = 6;   // Tanggal (1-31)
+const birthdayHour = 0;  // Jam ulang tahun (0-23)
+const birthdayMinute = 0; // Menit ulang tahun (0-59)
 
 // Elemen HTML
 const introScreen = document.getElementById('intro-screen');
@@ -266,4 +266,5 @@ document.querySelectorAll('.pixel-background div').forEach((div, index) => {
     div.style.left = Math.random() * 100 + '%';
 
 });
+
 
