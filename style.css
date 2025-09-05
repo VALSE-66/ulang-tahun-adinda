@@ -1,0 +1,586 @@
+/* Palet Warna Baru: Tema Berdebar (Pink, Merah, Ungu Tua) */
+:root {
+  --theme-primary: #FF1493; /* Deep Pink */
+  --theme-secondary: #FF69B4; /* Hot Pink */
+  --theme-tertiary: #FFC0CB; /* Light Pink */
+  --theme-dark: #8B0000; /* Dark Red */
+  --theme-text: #FFFFFF; /* White Text for contrast */
+  --theme-background-light: #FFDAB9; /* Peach Puff */
+  --theme-background-dark: #4B0082; /* Indigo - for deeper contrast */
+  --theme-green-accent: #32CD32; /* Lime Green for correct answers */
+  --theme-red-accent: #DC143C; /* Crimson for wrong answers */
+}
+
+body {
+  background-color: var(--theme-background-light); /* Background lebih cerah */
+  font-family: 'Press Start 2P', cursive;
+  color: var(--theme-dark); /* Warna teks default */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  image-rendering: pixelated;
+
+  /* Gradient background baru, dominan pink/merah */
+  background-image: 
+    radial-gradient(circle at top left, var(--theme-tertiary) 0%, transparent 40%),
+    radial-gradient(circle at bottom right, var(--theme-primary) 0%, transparent 40%),
+    radial-gradient(circle at center, var(--theme-secondary) 0%, transparent 50%);
+  background-size: 150% 150%, 150% 150%, 100% 100%;
+  background-position: top left, bottom right, center;
+  background-repeat: no-repeat;
+}
+
+/* --- Global Pixel Styles --- */
+.pixel-border {
+  border: 3px solid var(--theme-primary); /* Border pink gelap */
+  box-shadow: 4px 4px 0px 0px var(--theme-dark); /* Shadow merah tua */
+}
+
+.pixel-btn {
+  background-color: var(--theme-secondary); /* Button pink cerah */
+  border: 3px solid var(--theme-primary); /* Border pink gelap */
+  box-shadow: 4px 4px 0px 0px var(--theme-dark);
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+  color: var(--theme-text); /* Teks putih pada tombol */
+}
+
+.pixel-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--theme-dark);
+}
+
+.pixel-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--theme-dark);
+}
+
+.pixel-text {
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 2px 2px var(--theme-text); /* Shadow teks putih */
+}
+
+/* --- Kontainer Utama (semua layar) --- */
+.screen-container {
+  background-color: var(--theme-tertiary); /* Container light pink */
+  padding: 30px 45px;
+  border-radius: 5px;
+  box-shadow: 8px 8px 0px 0px var(--theme-dark);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 700px;
+  width: 90%;
+  z-index: 10;
+  overflow: visible;
+  /* Pattern background baru */
+  background-image: radial-gradient(var(--theme-primary) 15%, transparent 16%);
+  background-size: 40px 40px; 
+  background-position: 0 0, 20px 20px;
+}
+
+h1, h2 {
+  color: var(--theme-dark); /* Heading merah tua */
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px var(--theme-text);
+}
+
+p {
+  color: var(--theme-dark); /* Paragraf merah tua */
+}
+
+/* --- Intro & Thanks Screens --- */
+#intro-screen, #thanks-screen {
+  height: auto;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-options {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.intro-btn {
+  font-size: 1.2em;
+  padding: 12px 25px;
+  border-radius: 5px;
+}
+
+#thanks-screen h2 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+#thanks-screen p {
+  font-size: 1.1em;
+}
+
+/* --- Quiz Screen --- */
+#quiz-container {
+  padding: 20px 0;
+}
+
+#question-text {
+  font-size: 1.1em;
+  font-weight: normal;
+  color: var(--theme-dark);
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-btn {
+  background-color: var(--theme-background-light); /* Button background light peach */
+  border: 2px solid var(--theme-primary); /* Border pink gelap */
+  color: var(--theme-dark); /* Teks merah tua */
+  font-size: 1em;
+  padding: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 3px 3px 0px 0px var(--theme-dark);
+}
+
+.option-btn:hover {
+  background-color: var(--theme-primary); /* Hover pink gelap */
+  color: var(--theme-text); /* Teks putih saat hover */
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px var(--theme-dark);
+}
+
+.option-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px 0px var(--theme-dark);
+}
+
+.option-btn.correct {
+  background-color: var(--theme-green-accent); /* Green for correct */
+  border-color: darken(var(--theme-green-accent), 10%); /* Make border darker green */
+  box-shadow: 3px 3px 0px 0px darken(var(--theme-green-accent), 20%);
+  animation: flashGreen 0.5s ease-out;
+}
+
+.option-btn.wrong {
+  background-color: var(--theme-red-accent); /* Red for wrong */
+  border-color: darken(var(--theme-red-accent), 10%); /* Make border darker red */
+  box-shadow: 3px 3px 0px 0px darken(var(--theme-red-accent), 20%);
+  animation: shake 0.5s ease-out;
+}
+
+.quiz-message {
+  margin-top: 25px;
+  font-weight: bold;
+  color: var(--theme-dark);
+  font-size: 1.1em;
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* --- Countdown Screen --- */
+#countdown-container {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#countdown {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  background-color: var(--theme-tertiary); /* Light pink */
+  border-radius: 5px;
+  padding: 12px;
+  width: 80px;
+  box-shadow: 3px 3px 0px 0px var(--theme-dark);
+  border: 3px solid var(--theme-primary);
+  background-image: radial-gradient(var(--theme-secondary) 15%, transparent 16%);
+  background-size: 40px 40px; 
+  background-position: 0 0, 20px 20px;
+}
+
+.countdown-item span {
+  font-size: 2em;
+  color: var(--theme-dark);
+}
+
+.countdown-item p {
+  font-size: 0.8em;
+  color: var(--theme-dark);
+  margin-top: 5px;
+}
+
+/* --- Animasi Kue Ulang Tahun --- */
+.birthday-cake-animation {
+  width: 150px;
+  height: auto;
+  margin-top: 30px;
+  image-rendering: pixelated;
+  animation: floatAndWiggle 4s ease-in-out infinite alternate;
+  z-index: 12;
+}
+
+/* --- Message Screen (Happy Birthday) --- */
+#message {
+  font-size: 1.4em;
+  padding: 20px 0;
+  position: relative; 
+  overflow: hidden; 
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#message h2 {
+  font-size: 2.5em; 
+  margin-bottom: 15px;
+  white-space: nowrap; 
+}
+#message p {
+  font-size: 1em; 
+  line-height: 1.5;
+  margin-bottom: 20px; 
+  max-width: 90%; 
+}
+
+/* Pembungkus untuk Foto dan GIF In-line */
+.photo-and-gif-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    /* Menghapus gaya untuk gif-ornament-inline jika sudah tidak ada */
+    /* Jika Anda menghapus div ini di HTML, hapus juga CSS ini */
+}
+
+/* Hapus gaya untuk gif-ornament-inline karena sudah tidak digunakan */
+/* .gif-ornament-inline { display: none; } */
+
+
+/* Gaya untuk Galeri Foto */
+.photo-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 15px; 
+  flex-wrap: wrap; 
+}
+
+.birthday-photo {
+  width: 120px; 
+  height: 120px;
+  object-fit: cover; 
+  border-radius: 5px;
+  image-rendering: pixelated; 
+  transform: rotate(var(--rotate-angle, 0deg)); 
+  transition: transform 0.2s ease-out;
+}
+
+.birthday-photo:nth-child(1) { --rotate-angle: -3deg; }
+.birthday-photo:nth-child(2) { --rotate-angle: 3deg; }
+.birthday-photo:nth-child(3) { --rotate-angle: -2deg; }
+
+/* Animasi Goyangan untuk Foto */
+.animated-photo {
+    animation: slightWiggle 3s ease-in-out infinite alternate;
+}
+/* Untuk variasi goyangan antar foto */
+.animated-photo:nth-child(odd) { animation-delay: 0.2s; } 
+.animated-photo:nth-child(even) { animation-delay: 0.4s; }
+
+
+.additional-message {
+    font-size: 0.9em; 
+    margin-top: 30px;
+    font-weight: bold;
+    color: var(--theme-dark);
+    text-shadow: 1px 1px var(--theme-text);
+    max-width: 90%; 
+}
+
+/* --- Efek Berdebar untuk Teks Ucapan --- */
+.heartbeat-text {
+    animation: heartbeat 1.5s infinite ease-in-out; /* Animasi berdebar */
+}
+
+/* --- Popup Message di tengah layar --- */
+#popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+#popup-message {
+  font-size: 6em;
+  text-shadow: 4px 4px var(--theme-text);
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* --- Pixel Background & Animasi Hati --- */
+.pixel-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pixel-background div {
+  position: absolute;
+  /* Bentuk hati dengan pseudo-elemen */
+  width: 25px; /* Ukuran hati diperbesar */
+  height: 25px;
+  background-color: var(--theme-primary); /* Warna hati */
+  transform: rotate(-45deg); /* Rotasi untuk bentuk hati */
+  opacity: 0;
+  animation: heartMove 3s linear infinite; /* Animasi dipercepat */
+  border-radius: 0 50% 50% 50%; /* Bentuk hati bagian bawah */
+  --scale: calc(0.5 + var(--random-value) * 1.5); 
+
+  /* Bagian atas hati */
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 25px; /* Sama dengan ukuran utama */
+    height: 25px;
+    background-color: var(--theme-primary); /* Warna hati */
+    border-radius: 50%;
+  }
+
+  &::before {
+    top: -12.5px; /* Posisi di atas */
+    left: 0;
+  }
+
+  &::after {
+    top: 0;
+    left: 12.5px; /* Posisi di kanan */
+  }
+}
+
+/* Animasi untuk div background hati, atur posisi acak di JS */
+.pixel-background div:nth-child(1) { left: 10%; animation-delay: 0s; }
+.pixel-background div:nth-child(2) { left: 20%; animation-delay: 0.3s; }
+.pixel-background div:nth-child(3) { left: 30%; animation-delay: 0.6s; }
+.pixel-background div:nth-child(4) { left: 40%; animation-delay: 0.9s; }
+.pixel-background div:nth-child(5) { left: 50%; animation-delay: 1.2s; }
+.pixel-background div:nth-child(6) { left: 60%; animation-delay: 1.5s; }
+.pixel-background div:nth-child(7) { left: 70%; animation-delay: 1.8s; }
+.pixel-background div:nth-child(8) { left: 80%; animation-delay: 2.1s; }
+.pixel-background div:nth-child(9) { left: 90%; animation-delay: 2.4s; }
+.pixel-background div:nth-child(10) { left: 5%; animation-delay: 2.7s; }
+.pixel-background div:nth-child(11) { left: 15%; animation-delay: 3s; }
+.pixel-background div:nth-child(12) { left: 25%; animation-delay: 3.3s; }
+.pixel-background div:nth-child(13) { left: 35%; animation-delay: 3.6s; }
+.pixel-background div:nth-child(14) { left: 45%; animation-delay: 3.9s; }
+.pixel-background div:nth-child(15) { left: 55%; animation-delay: 4.2s; }
+.pixel-background div:nth-child(16) { left: 65%; animation-delay: 4.5s; }
+.pixel-background div:nth-child(17) { left: 75%; animation-delay: 4.8s; }
+.pixel-background div:nth-child(18) { left: 85%; animation-delay: 5.1s; }
+.pixel-background div:nth-child(19) { left: 95%; animation-delay: 5.4s; }
+.pixel-background div:nth-child(20) { left: 10%; animation-delay: 5.7s; } /* Ulangi untuk lebih banyak variasi */
+/* Lanjutkan dengan delay tambahan untuk div yang lain jika ada lebih dari 20 */
+
+
+/* --- Chibi Pixel Animals --- */
+.chibi-cat, .chibi-bunny, .chibi-dog, .chibi-bear, .chibi-penguin, .chibi-fox {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  z-index: 11;
+}
+
+.chibi-cat { 
+  background-image: url('https://i.ibb.co/hK8bM9P/pixel-cat.png');
+  bottom: -30px; 
+  left: -20px; 
+  transform: scaleX(-1);
+} 
+.chibi-bunny { 
+  background-image: url('https://i.ibb.co/BwF192g/pixel-bunny.png');
+  top: -30px; 
+  right: -20px; 
+}
+.chibi-dog { 
+  background-image: url('https://i.ibb.co/L8GjKjY/pixel-dog.png');
+  bottom: -30px; 
+  right: -20px; 
+}
+.chibi-bear { 
+  background-image: url('https://i.ibb.co/g42B6s8/pixel-bear.png');
+  top: -30px; 
+  left: -20px; 
+  transform: scaleX(-1);
+}
+.chibi-penguin { 
+  background-image: url('https://i.ibb.co/jGGxW6q/pixel-penguin.png');
+  bottom: -30px; 
+  left: -20px; 
+}
+.chibi-fox { 
+  background-image: url('https://i.ibb.co/pLw65kG/pixel-fox.png');
+  bottom: 20px; 
+  left: 20px; 
+}
+
+/* Animasi Pergerakan Hewan Chibi */
+.chibi-animated {
+  animation: floatAndWiggle 4s ease-in-out infinite alternate;
+}
+
+/* Kelas untuk menyembunyikan/menampilkan dengan animasi */
+.hidden {
+  display: none !important;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.4s ease-in forwards;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes popupIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  60% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes popupOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+
+
+@keyframes flashGreen {
+  0% { background-color: var(--theme-green-accent); }
+  50% { background-color: lightgreen; }
+  100% { background-color: var(--theme-green-accent); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pixelMove {
+  /* Hapus atau ganti jika Anda tidak lagi ingin animasi sirkel/pixel */
+  /* Namun, untuk animasi hati, kita akan menggunakan keyframe heartMove */
+  0% { transform: translateY(0) translateX(0) scale(var(--scale, 1)); opacity: 0; }
+  25% { opacity: 0.7; }
+  50% { transform: translateY(-100vh) translateX(50px) scale(var(--scale, 1)); opacity: 0; }
+  50.01% { transform: translateY(0) translateX(0) scale(var(--scale, 1)); }
+  75% { opacity: 0.7; }
+  100% { transform: translateY(-100vh) translateX(50px) scale(var(--scale, 1)); opacity: 0; }
+}
+
+@keyframes floatAndWiggle {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(2deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(5px) rotate(-2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes slightWiggle {
+  0% { transform: rotate(var(--rotate-angle, 0deg)) translateY(0px); }
+  25% { transform: rotate(calc(var(--rotate-angle, 0deg) + 1deg)) translateY(-1px); }
+  50% { transform: rotate(var(--rotate-angle, 0deg)) translateY(0px); }
+  75% { transform: rotate(calc(var(--rotate-angle, 0deg) - 1deg)) translateY(1px); }
+  100% { transform: rotate(var(--rotate-angle, 0deg)) translateY(0px); }
+}
+
+/* Keyframe untuk efek berdebar pada teks */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    text-shadow: 2px 2px var(--theme-text);
+  }
+  25% {
+    transform: scale(1.03); /* Sedikit membesar */
+    text-shadow: 3px 3px var(--theme-primary); /* Shadow pink */
+  }
+  50% {
+    transform: scale(1);
+    text-shadow: 2px 2px var(--theme-text);
+  }
+  75% {
+    transform: scale(0.97); /* Sedikit mengecil */
+    text-shadow: 1px 1px var(--theme-secondary); /* Shadow pink cerah */
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 2px 2px var(--theme-text);
+  }
+}
+
+/* Keyframe untuk animasi hati yang bergerak cepat */
+@keyframes heartMove {
+  0% { 
+    transform: translateY(0) rotate(-45deg) scale(var(--scale, 1)); 
+    opacity: 0; 
+  }
+  20% { 
+    opacity: 0.8; 
+  }
+  80% { 
+    opacity: 0.8; 
+  }
+  100% { 
+    transform: translateY(-120vh) rotate(-45deg) scale(var(--scale, 1.2)); /* Bergerak lebih jauh dan sedikit membesar */
+    opacity: 0; 
+  }
+}

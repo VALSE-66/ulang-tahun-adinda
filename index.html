@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulang Tahunku!</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="pixel-background">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+
+    <div id="intro-screen" class="screen-container">
+        <h2>Apakah ini Nency?</h2>
+        <div class="intro-options">
+            <button id="yes-btn" class="intro-btn pixel-btn">Iya</button>
+            <button id="no-btn" class="intro-btn pixel-btn">Tidak</button>
+        </div>
+        <div class="chibi-cat chibi-animated"></div>
+        <div class="chibi-bunny chibi-animated"></div>
+    </div>
+
+    <div id="thanks-screen" class="hidden screen-container">
+        <h2>Terima Kasih!</h2>
+        <p>Halaman ini bukan untukmu, segera pergi...</p>
+        <div class="chibi-fox chibi-animated"></div>
+    </div>
+
+    <div class="container hidden screen-container">
+        <div id="quiz-container">
+            <h2>Buktikan jika kamu memang Nency dengan jawab kuis ini!</h2>
+            <div class="question-box">
+                <p id="question-text"></p>
+                <div class="options">
+                </div>
+            </div>
+            <p id="quiz-message" class="quiz-message"></p>
+            <div class="chibi-dog chibi-animated"></div>
+        </div>
+
+        <div id="countdown-container" class="hidden">
+            <h1>Ternyata kamu memang adinda 😁👍</h1>
+            <h2>kembali lagi jika hitung mundur telah selesai ya ndut..</h2>
+            <div id="countdown">
+                <div class="countdown-item pixel-border">
+                    <span id="days"></span>
+                    <p>Hari</p>
+                </div>
+                <div class="countdown-item pixel-border">
+                    <span id="hours"></span>
+                    <p>Jam</p>
+                </div>
+                <div class="countdown-item pixel-border">
+                    <span id="minutes"></span>
+                    <p>Menit</p>
+                </div>
+                <div class="countdown-item pixel-border">
+                    <span id="seconds"></span>
+                    <p>Detik</p>
+                </div>
+            </div>
+            
+            <img src="birthday-cake.gif" alt="Animated Pixel Birthday Cake" class="birthday-cake-animation">
+            
+            <div class="chibi-bear chibi-animated"></div>
+        </div>
+
+        <div id="message" class="hidden">
+            <h3>Selamat Ulang Tahun Adinda...!</h3>
+            <p>Semoga di umur yang baru ini semua harapan adek bisa tercapai. hehe😘</p>
+
+            <div class="photo-and-gif-wrapper">
+                <div class="photo-gallery">
+                    <img src="w.jpeg" alt="Foto Ulang Tahun 1" class="birthday-photo pixel-border animated-photo">
+                    <img src="ww.jpeg" alt="Foto Ulang Tahun 2" class="birthday-photo pixel-border animated-photo">
+                    <img src="www.jpeg" alt="Foto Ulang Tahun 3" class="birthday-photo pixel-border animated-photo">
+                </div>
+                </div>
+
+            <p>Terima kasih atas semua kenangan indah kita. Abang sayang sama adinda! ❤️</p>
+            
+            <div class="chibi-penguin chibi-animated"></div>
+        </div>
+    </div>
+    
+    <div id="popup-wrapper" class="hidden">
+        <div id="popup-message" class="pixel-text"></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
